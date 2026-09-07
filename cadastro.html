@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Página de engajamento -->
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro dos Colaboradores</title>
+
+</head>
+
+<body>
+
+	<header>
+
+		<h1>Torne-se um colaborador</h1>
+		<ul>
+			<li><a href="index.html">Conheça Nossa ONG</a></li>
+			<li><a href="projetos.html">Nossos Projetos</a></li>
+		</ul>
+
+	</header>
+
+	<form>
+
+		<fieldset>
+
+			<legend>Preencha os dados abaixo para ser um de nossos colaboradores.</legend>
+
+			<label for="nome">Nome completo:</label>
+			<input type="text" id="nome" name="nome" required>
+
+			<label for="cpf">CPF:</label>
+			<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00" title="Formato: 000.000.000-00" required>
+
+			<label for="email">E-mail:</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="telefone">Telefone:</label>
+			<input type="tel" id="telefone" name="telefone" pattern="\([0-9]{2}\)\s[0-9]\s[0-9]{4}-[0-9]{4}" placeholder="(00) 0 0000-0000" title="Formato: (00) 0 0000-0000" required>
+
+			<label for="cep">CEP:</label>
+			<input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="00000-000" title="Formato: 00000-000" required>
+
+		</fieldset>
+
+		<button type="submit">Enviar</button>
+
+	</form>
+
+</body>
+
+</html>

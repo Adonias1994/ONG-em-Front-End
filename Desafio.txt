@@ -1,0 +1,36 @@
+Contexto:
+
+As organizações do terceiro setor frequentemente lidam com recursos limitados e dependem enormemente do engajamento de voluntários e da captação de doações. A falta de uma plataforma digital clara, acessível e bem estruturada pode comprometer severamente a credibilidade institucional e dificultar a navegação dos apoiadores. O uso apropriado da semântica na linguagem HTML5 não é apenas uma boa prática de programação, mas um requisito essencial para garantir a correta indexação nos motores de busca (SEO) e fornecer um nível adequado de acessibilidade digital para todos os usuários.
+
+
+Desafio:
+
+Projetar e desenvolver um conjunto de páginas web utilizando o padrão HTML5 semântico, assegurando uma arquitetura de informação coerente e organizada em diretórios estruturados: uma página inicial (index.html) apresentando a ONG, uma página sobre iniciativas solidárias (projetos.html) e uma página de engajamento (cadastro.html). O grande destaque do desafio será implementar, neta última, um formulário interativo completo contendo validações nativas e máscaras de entrada rigorosas (CPF, Telefone, CEP) para assegurar o registro íntegro de futuros colaboradores.
+
+A página inicial, tradicionalmente nomeada index.html, funciona como o cartão de visitas digital de qualquer organização. Ela é o ponto de aterrissagem padrão para visitantes e precisa comunicar imediatamente a identidade da ONG e os meios diretos para que os usuários possam estabelecer contato.
+
+O desenvolvimento desta página exige a combinação da infraestrutura semântica definida anteriormente com a incorporação de recursos de mídia, como imagens perfeitamente ajustadas no layout, acompanhadas do atributo obrigatório para acessibilidade.
+
+Informe o trecho principal do código que contempla as seções institucionais de apresentação e a disposição dos dados de contato inseridos no arquivo index.html.
+
+Descreva como você integrou a tag de imagem na página inicial e detalhe a estratégia de acessibilidade aplicada através do atributo alt.
+
+
+Tags semânticas utilizadas:
+
+<header>: Agrupa conteúdos introdutórios, como o título principal da página e o menu de navegação.
+
+<h1> e <h2>: Definem os títulos e subtítulos, estruturando a hierarquia lógica de importância da informação.
+
+<section>: Representa uma seção temática ou um bloco lógico de conteúdo dentro do documento.
+
+<a>: Define um hiperlink (âncora) utilizado para a navegação entre as diferentes páginas do site.
+
+<form>: Delimita a área de um formulário interativo para a coleta de dados dos usuários.
+
+<fieldset>: Agrupa campos relacionados e lógicos dentro de um formulário.
+
+<legend>: Fornece uma legenda descritiva para o grupo de campos delimitado pelo <fieldset>.
+
+<label>: Cria um rótulo de texto explicativo associado diretamente a um campo de entrada (<input>).
+
