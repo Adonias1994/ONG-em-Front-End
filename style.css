@@ -1,0 +1,296 @@
+/* =========================================
+   1. DESIGN SYSTEM E VARIÁVEIS NATIVAS
+   (Paleta de 8 cores, Tipografia e Espaçamentos)
+   ========================================= */
+:root {
+    /* Paleta de Cores (Primárias, Secundárias e Neutras) */
+    --cor-primaria: #005A9C;      /* Azul principal */
+    --cor-secundaria: #F2A900;    /* Amarelo/Laranja para ação */
+    --cor-fundo: #F4F6F8;         /* Fundo da página */
+    --cor-branco: #FFFFFF;        /* Superfícies/Cartões */
+    --cor-texto-principal: #2D3748; /* Texto escuro */
+    --cor-texto-secundario: #718096; /* Texto auxiliar */
+    --cor-sucesso: #38A169;       /* Feedback positivo */
+    --cor-erro: #E53E3E;          /* Feedback negativo */
+    --cor-borda: #E2E8F0;         /* Divisórias */
+
+    /* Tipografia Escalável (5 Patamares) */
+    --fonte-familia: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --texto-sm: 0.875rem;   /* 14px */
+    --texto-base: 1rem;     /* 16px */
+    --texto-lg: 1.25rem;    /* 20px */
+    --texto-xl: 1.5rem;     /* 24px */
+    --texto-2xl: 2rem;      /* 32px */
+
+    /* Espaçamentos Modulares (Escala Estrita) */
+    --espaco-1: 0.5rem;     /* 8px */
+    --espaco-2: 1rem;       /* 16px */
+    --espaco-3: 1.5rem;     /* 24px */
+    --espaco-4: 2rem;       /* 32px */
+    --espaco-5: 3rem;       /* 48px */
+}
+
+/* =========================================
+   2. RESET E ESTILOS GLOBAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-familia);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Mantém o rodapé no fundo */
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-secundaria);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: var(--espaco-2);
+}
+
+/* =========================================
+   3. CABEÇALHO E NAVEGAÇÃO INTERATIVA (Flexbox)
+   ========================================= */
+header {
+    background-color: var(--cor-branco);
+    padding: var(--espaco-2) var(--espaco-4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra no mobile */
+    gap: var(--espaco-2);
+}
+
+header h1 {
+    font-size: var(--texto-xl);
+    color: var(--cor-primaria);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: var(--espaco-3);
+}
+
+header ul li a {
+    font-weight: 600;
+    padding: var(--espaco-1) 0;
+}
+
+/* =========================================
+   4. LAYOUT MACRO (CSS Grid de 12 Colunas)
+   ========================================= */
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-4);
+    width: 100%;
+    max-width: 1200px;
+    margin: var(--espaco-4) auto;
+    padding: 0 var(--espaco-4);
+    flex-grow: 1; /* Ocupa o espaço livre empurrando o footer */
+}
+
+/* No mobile, as seções ocupam todas as 12 colunas */
+main > section {
+    grid-column: span 12;
+    background-color: var(--cor-branco);
+    padding: var(--espaco-3);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Estilização para as seções da página de Projetos (que estão direto no body) */
+body > section {
+    width: 100%;
+    max-width: 1200px;
+    margin: var(--espaco-2) auto;
+    padding: var(--espaco-3);
+    background-color: var(--cor-branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+h2 {
+    font-size: var(--texto-lg);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-2);
+    border-bottom: 2px solid var(--cor-secundaria);
+    display: inline-block;
+    padding-bottom: var(--espaco-1);
+}
+
+/* =========================================
+   5. FORMULÁRIOS E FEEDBACKS VISUAIS
+   ========================================= */
+form {
+    max-width: 800px;
+    margin: var(--espaco-4) auto;
+    padding: var(--espaco-4);
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    flex-grow: 1;
+}
+
+fieldset {
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-2);
+}
+
+legend {
+    grid-column: span 12;
+    font-size: var(--texto-lg);
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-3);
+}
+
+label {
+    grid-column: span 12;
+    font-size: var(--texto-sm);
+    font-weight: 600;
+    color: var(--cor-texto-principal);
+}
+
+input {
+    grid-column: span 12;
+    padding: var(--espaco-2);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    font-family: var(--fonte-familia);
+    font-size: var(--texto-base);
+    transition: all 0.3s ease;
+}
+
+/* Feedbacks Visuais de Acessibilidade e Interação */
+input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.2);
+}
+
+/* Validação HTML5 Nativa */
+input:not(:placeholder-shown):valid {
+    border-color: var(--cor-sucesso);
+}
+
+input:not(:placeholder-shown):invalid {
+    border-color: var(--cor-erro);
+}
+
+button[type="submit"] {
+    margin-top: var(--espaco-4);
+    padding: var(--espaco-2) var(--espaco-4);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border: none;
+    border-radius: 4px;
+    font-size: var(--texto-base);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d69500;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   6. RODAPÉ
+   ========================================= */
+footer {
+    background-color: var(--cor-texto-principal);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: var(--espaco-3);
+    margin-top: auto; /* Garante que fique sempre no fim */
+}
+
+/* =========================================
+   7. RESPONSIVIDADE (5 Breakpoints Estritos)
+   ========================================= */
+
+/* 1º Cenário: Smartphones em Paisagem / Telas pequenas (a partir de 480px) */
+@media (min-width: 480px) {
+    main > section {
+        grid-column: span 12; /* Continua ocupando tudo, mas podemos ajustar margens */
+    }
+}
+
+/* 2º Cenário: Tablets em Retrato (a partir de 768px) */
+@media (min-width: 768px) {
+    main > section {
+        grid-column: span 6; /* Divide a tela em 2 blocos de 6 colunas */
+    }
+    
+    fieldset > label {
+        grid-column: span 4;
+        display: flex;
+        align-items: center;
+    }
+    fieldset > input {
+        grid-column: span 8;
+    }
+    button[type="submit"] {
+        width: auto;
+        display: block;
+        margin-left: auto;
+    }
+}
+
+/* 3º Cenário: Laptops / Desktops Menores (a partir de 992px) */
+@media (min-width: 992px) {
+    main > section {
+        /* Se houverem 3 seções, cada uma ocupa 4 colunas (4+4+4 = 12) */
+        grid-column: span 6; 
+    }
+    header {
+        padding: var(--espaco-2) var(--espaco-5);
+    }
+}
+
+/* 4º Cenário: Desktops Padrão (a partir de 1200px) */
+@media (min-width: 1200px) {
+    main {
+        max-width: 1140px;
+        gap: var(--espaco-5);
+    }
+}
+
+/* 5º Cenário: Monitores Panorâmicos / Ultrawide (a partir de 1440px) */
+@media (min-width: 1440px) {
+    main {
+        max-width: 1320px;
+    }
+    h2 {
+        font-size: var(--texto-xl); /* Aumenta a tipografia em telas gigantes */
+    }
+}
