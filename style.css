@@ -293,4 +293,185 @@ footer {
     h2 {
         font-size: var(--texto-xl); /* Aumenta a tipografia em telas gigantes */
     }
+} 
+ 
+/* =========================================
+   8. COMPONENTES VISUAIS E INTERATIVIDADE AVANÇADA
+   (Dropdown, Cards, Modais e Hambúrguer)
+   ========================================= */
+
+/* --- Cartões (Cards Modulares) --- */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--cor-borda);
+    overflow: hidden;
+}
+
+.card:hover, .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Menu Dropdown --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-conteudo {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--cor-branco);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 100;
+    flex-direction: column;
+    padding: var(--espaco-1) 0;
+}
+
+.dropdown-conteudo li a {
+    padding: var(--espaco-1) var(--espaco-2);
+    display: block;
+    color: var(--cor-texto-principal);
+    white-space: nowrap;
+}
+
+.dropdown-conteudo li a:hover {
+    background-color: var(--cor-fundo);
+    color: var(--cor-secundaria);
+}
+
+/* O dropdown aparece ao passar o rato (desktop) ou manter o foco */
+.dropdown:hover .dropdown-conteudo,
+.dropdown:focus-within .dropdown-conteudo {
+    display: flex;
+}
+
+/* --- Modais e Alertas Contextuais (Lógica via pseudo-classe :target) --- */
+.modal-overlay {
+    display: none; /* Escondido por defeito */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Quando a âncora do URL for igual ao ID do modal, ele é exibido */
+.modal-overlay:target {
+    display: flex;
+}
+
+.modal-conteudo {
+    background-color: var(--cor-branco);
+    padding: var(--espaco-4);
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    animation: deslizarModal 0.4s ease-out;
+}
+
+/* Variação visual para Alertas */
+.modal-conteudo.alerta {
+    border-top: 5px solid var(--cor-erro);
+}
+.modal-conteudo.alerta h2 {
+    color: var(--cor-erro);
+    border-bottom: none;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: var(--espaco-2);
+    right: var(--espaco-2);
+    font-size: var(--texto-xl);
+    color: var(--cor-texto-secundario);
+    line-height: 1;
+}
+
+.fechar-modal:hover {
+    color: var(--cor-erro);
+}
+
+.btn-alerta {
+    display: inline-block;
+    margin-top: var(--espaco-2);
+    padding: var(--espaco-1) var(--espaco-2);
+    background-color: var(--cor-erro);
+    color: var(--cor-branco);
+    border-radius: 4px;
+    font-size: var(--texto-sm);
+    font-weight: bold;
+}
+
+.btn-alerta:hover {
+    background-color: #C53030;
+    color: var(--cor-branco);
+}
+
+@keyframes deslizarModal {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Menu Hambúrguer (Mobile) --- */
+.menu-toggle {
+    display: none; /* Oculta a caixa de seleção visualmente */
+}
+
+.hamburguer {
+    display: none;
+    font-size: var(--texto-2xl);
+    cursor: pointer;
+    color: var(--cor-primaria);
+    user-select: none;
+}
+
+/* Ajustes apenas para ecrãs móveis (abaixo de 768px) */
+@media (max-width: 767px) {
+    .hamburguer {
+        display: block;
+    }
+    
+    .menu-principal {
+        display: none; /* Oculta o menu inicialmente no mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--cor-branco);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: var(--espaco-2) 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        z-index: 50;
+    }
+
+    /* A mágica do Checkbox Hack: Quando o input está checado, o menu adjacente aparece */
+    .menu-toggle:checked ~ .menu-principal {
+        display: flex;
+    }
+
+    .menu-principal li {
+        width: 100%;
+        text-align: center;
+        padding: var(--espaco-1) 0;
+    }
+
+    header {
+        position: relative; /* Necessário para ancorar o menu absoluto */
+    }
+
+    .dropdown-conteudo {
+        position: static;
+        box-shadow: none;
+        background-color: var(--cor-fundo);
+    }
 }

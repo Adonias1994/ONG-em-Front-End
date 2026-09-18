@@ -1,43 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<!-- Página inicial -->
-
+<html lang="pt-PT">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Apresentação da ONG</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação da ONG</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<header>
-		<h1>Apresentação da ONG</h1>
-		<nav>
-			<ul>
-				<li><a href="projetos.html">Nossos Projetos</a></li>
-				<li><a href="cadastro.html">Seja um Colaborador</a></li>
-			</ul>
-		</nav>
-	</header>
+    <header>
+        <h1>Apresentação da ONG</h1>
+        <nav class="navegacao">
+            <!-- Lógica CSS para Menu Hambúrguer -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburguer">&#9776;</label>
+            
+            <ul class="menu-principal">
+                <li><a href="projetos.html">Nossos Projetos</a></li>
+                
+                <!-- Componente Dropdown -->
+                <li class="dropdown">
+                    <a href="#void" class="dropdown-btn">Colabore &#9662;</a>
+                    <ul class="dropdown-conteudo">
+                        <li><a href="cadastro.html">Seja um Colaborador</a></li>
+                        <li><a href="#modal-doacao">Fazer um Donativo</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-	<main>
-		<section>
-			<h2>Nosso Propósito</h2>
-			<img src="multi_midia/imagem1.jpg" alt="Equipe de voluntários da ONG reunida organizando doações de cestas básicas em uma comunidade local.">
-			<p>A ONG é uma organização de iniciativa privada que não possui fins lucrativos e atua em prol do interesse público e social, atuando onde o Estado não consegue chegar com eficiência, focando no bem-estar coletivo.</p>
-		</section>
+    <main>
+        <!-- Sistema de Cards Modulares -->
+        <section class="card">
+            <h2>O Nosso Propósito</h2>
+            <img src="multi_midia/imagem1.jpg" alt="Equipa de voluntários da ONG reunida organizando doações.">
+            <p>A ONG é uma organização de iniciativa privada que não possui fins lucrativos e atua em prol do interesse público e social, focando no bem-estar coletivo.</p>
+        </section>
 
-		<section>
-			<h2>Meios de Contato</h2>
-			<p><strong>E-mail:</strong> contato@ongsolidaria.org</p>
-			<p><strong>Telefone:</strong> (XX) X XXXX-XXXX</p>
-			<p><strong>Endereço:</strong> Rua da Solidariedade, nº 100 - Recife/PE</p>
-		</section>
-	</main>
+        <section class="card">
+            <h2>Meios de Contacto</h2>
+            <p><strong>E-mail:</strong> contacto@ongsolidaria.org</p>
+            <p><strong>Telefone:</strong> (XX) X XXXX-XXXX</p>
+            <p><strong>Morada:</strong> Rua da Solidariedade, nº 100</p>
+            <!-- Gatilho para abrir o Modal Contextual -->
+            <a href="#modal-alerta" class="btn-alerta">Ver Alerta de Funcionamento</a>
+        </section>
+    </main>
 
-	<footer>
-		<p>&copy; 2026 ONG Solidária. Todos os direitos reservados.</p>
-	</footer>
+    <footer>
+        <p>&copy; 2026 ONG Solidária. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Lógica Representacional de Modais (CSS:target) -->
+    <!-- Modal de Informação/Donativo -->
+    <div id="modal-doacao" class="modal-overlay">
+        <div class="modal-conteudo">
+            <a href="#" class="fechar-modal">&times;</a>
+            <h2>Apoie a nossa causa</h2>
+            <p>As transferências podem ser feitas através de referência multibanco ou MB Way. Todo o apoio é fundamental para mantermos as nossas portas abertas!</p>
+        </div>
+    </div>
+
+    <!-- Modal de Alerta Contextual -->
+    <div id="modal-alerta" class="modal-overlay">
+        <div class="modal-conteudo alerta">
+            <a href="#" class="fechar-modal">&times;</a>
+            <h2>Aviso Importante</h2>
+            <p>Os nossos serviços de atendimento presencial encontram-se temporariamente limitados devido a reestruturações do espaço físico.</p>
+        </div>
+    </div>
+
 </body>
-
 </html>
