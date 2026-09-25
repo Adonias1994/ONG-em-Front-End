@@ -8,20 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>Apresentação da ONG</h1>
+        <!-- Opcional, mas recomendado: transformar o título num link para a Home -->
+        <a href="#home" style="text-decoration: none;">
+            <h1>Apresentação da ONG</h1>
+        </a>
+    
         <nav class="navegacao">
             <!-- Lógica CSS para Menu Hambúrguer -->
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="hamburguer">&#9776;</label>
-            
+        
             <ul class="menu-principal">
-                <li><a href="projetos.html">Nossos Projetos</a></li>
-                
+                <!-- Adicionado um link para facilitar o retorno à página principal -->
+                <li><a href="#home">Página Inicial</a></li>
+            
+                <!-- Substituição 1: de "projetos.html" para "#projetos" -->
+                <li><a href="#projetos">Nossos Projetos</a></li>
+            
                 <!-- Componente Dropdown -->
                 <li class="dropdown">
                     <a href="#void" class="dropdown-btn">Colabore &#9662;</a>
                     <ul class="dropdown-conteudo">
-                        <li><a href="cadastro.html">Seja um Colaborador</a></li>
+                        <!-- Substituição 2: de "cadastro.html" para "#cadastro" -->
+                        <li><a href="#cadastro">Seja um Colaborador</a></li>
                         <li><a href="#modal-doacao">Fazer um Donativo</a></li>
                     </ul>
                 </li>
@@ -29,7 +38,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="app-root">
         <!-- Sistema de Cards Modulares -->
         <section class="card">
             <h2>O Nosso Propósito</h2>
@@ -69,6 +78,6 @@
             <p>Os nossos serviços de atendimento presencial encontram-se temporariamente limitados devido a reestruturações do espaço físico.</p>
         </div>
     </div>
-
+<script src="app.js" defer></script>
 </body>
 </html>
